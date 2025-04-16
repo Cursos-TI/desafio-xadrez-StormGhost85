@@ -1,0 +1,71 @@
+void movimento_torre(){
+    printf("\nMOVIMENTO DA TORRE (5 casas para a  direita)");
+    int casas = 5;
+
+    //Usando FOR para a Torre
+    for (int i = 0; i < casas; i++){
+        printf("Direita\n");
+    }
+}
+
+void movimento_bispo(){
+    printf("\nMOVIMENTO DO BISPO (5 casas na diagonal para cima e para direita)");
+    int casas = 5;
+    int i = 0;
+
+    //Usando WHILE para Bispo
+    while (i < casas){
+        printf("Cima, Direita\n");
+        i++;
+    }
+}
+
+void movimento_rainha(){
+    printf("\nMOVIMENTO DA RAINHA (8 casas para a esquerda)\n");
+    int casas = 8;
+    int i = 0;
+
+    //Usando DO-WHILE para a Rainha
+    do{
+        printf("Esquerda\n");
+        i++;
+    } while (i < casas);
+}
+
+void movimento_cavalo(){
+    printf("\nMOVIMENTO DO CAVALO\n");
+
+    int casas_baixo = 2;
+    int casas_esquerda = 1;
+
+    for(int j = 0; j < casas_baixo; j++){
+        int k = 0;
+        while(k < casas_esquerda){
+            printf("Baixo\n");
+            k++;
+            break;
+        }
+    }
+    printf("Esquerda\n");
+}
+
+
+int main() {
+        printf("Simulador de Movimentos de Xadrez\n");
+        
+        //Torre: for - 5 casas na direita
+        movimento_torre();
+
+        //Bispo: while - 5 casas na diagonal (cima/direita)
+        movimento_bispo();
+
+        //Rainha: do-while - 8 casas para a esquerda
+        movimento_rainha();
+        
+        //Cavalo: loop aninhado - 2 casas baixo e 1 para a esquerda
+        movimento_cavalo();
+
+        printf("\nSimulação Concluída!\n");
+        return 0;
+    
+}
