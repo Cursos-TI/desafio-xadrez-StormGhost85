@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+
+
+void movimento_torre(){
+    printf("\nMOVIMENTO DA TORRE (5 casas para a  direita)");
+    int casas = 5;
+
+    //Usando FOR para a Torre
+    for (int i = 0; i < casas; i++){
+        printf("Direita\n");
+    }
+}
+
+void movimento_bispo(){
+    printf("\nMOVIMENTO DO BISPO (5 casas na diagonal para cima e para direita)");
+    int casas = 5;
+    int i = 0;
+
+    //Usando WHILE para Bispo
+    while (i < casas){
+        printf("Cima, Direita\n");
+        i++;
+    }
+}
+
+void movimento_rainha(){
+    printf("\nMOVIMENTO DA RAINHA (8 casas para a esquerda)\n");
+    int casas = 8;
+    int i = 0;
+
+    //Usando DO-WHILE para a Rainha
+    do{
+        printf("Esquerda\n");
+        i++;
+    } while (i < casas);
+}
+int main() {
+        printf("Simulador de Movimentos de Xadrez\n");
+        
+        //Torre: for - 5 casas na direita
+        movimento_torre();
+
+        //Bispo: while - 5 casas na diagonal (cima/direita)
+        movimento_bispo();
+
+        //Rainha: do-while - 8 casas para a esquerda
+        movimento_rainha();
+        return 0;
+}
