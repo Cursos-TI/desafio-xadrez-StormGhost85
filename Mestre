@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <string.h>
+
+// Função recursiva para movimento da Torre
+void movimento_torre_recursivo(int casas) {
+    if (casas <= 0) return;
+    printf("Direita\n");
+    movimento_torre_recursivo(casas - 1);
+}
+
+void movimento_torre() {
+    printf("\nMOVIMENTO DA TORRE (5 casas para a direita)\n");
+    int casas = 5;
+    movimento_torre_recursivo(casas);
+}
+
+// Função recursiva para movimento do Bispo
+void movimento_bispo_recursivo(int casas) {
+    if (casas <= 0) return;
+    printf("Cima, Direita\n");
+    movimento_bispo_recursivo(casas - 1);
+}
+
+// Função do Bispo com loops aninhados
+void movimento_bispo_loops() {
+    printf("\nMOVIMENTO DO BISPO COM LOOPS ANINHADOS\n");
+    int casas = 5;
+    
+    for (int vertical = 0; vertical < casas; vertical++) {
+        for (int horizontal = 0; horizontal < casas; horizontal++) {
+            if (vertical == horizontal) {
+                printf("Cima, Direita\n");
+                break; // Apenas uma diagonal por linha
+            }
+        }
+    }
+}
+
+void movimento_bispo() {
+    printf("\nMOVIMENTO DO BISPO (5 casas na diagonal para cima e para direita)\n");
+    int casas = 5;
+    movimento_bispo_recursivo(casas);
+}
+
+// Função recursiva para movimento da Rainha
+void movimento_rainha_recursivo(int casas) {
+    if (casas <= 0) return;
+    printf("Esquerda\n");
+    movimento_rainha_recursivo(casas - 1);
+}
+
+void movimento_rainha() {
+    printf("\nMOVIMENTO DA RAINHA (8 casas para a esquerda)\n");
+    int casas = 8;
+    movimento_rainha_recursivo(casas);
+}
+
+// Movimento complexo do Cavalo com loops aninhados
+void movimento_cavalo() {
+    printf("\nMOVIMENTO DO CAVALO (2 casas para cima e 1 para direita)\n");
+    
+    int movimentos_cima = 2;
+    int movimentos_direita = 1;
+    
+    for (int i = 0; i < movimentos_cima; i++) {
+        printf("Cima\n");
+        
+        for (int j = 0; j < movimentos_direita; j++) {
+            if (i == movimentos_cima - 1) { // Só move para direita no final
+                printf("Direita\n");
+            }
+        }
+    }
+}
+
+int main() {
+    printf("Simulador de Movimentos de Xadrez\n");
+    
+    // Torre: recursivo - 5 casas na direita
+    movimento_torre();
+
+    // Bispo: recursivo - 5 casas na diagonal (cima/direita)
+    movimento_bispo();
+
+    // Bispo com loops aninhados
+    movimento_bispo_loops();
+
+    // Rainha: recursivo - 8 casas para a esquerda
+    movimento_rainha();
+    
+    // Cavalo: loop aninhado - 2 casas cima e 1 para direita
+    movimento_cavalo();
+
+    printf("\nSimulação Concluída!\n");
+    return 0;
+}
